@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Notes/Challenges:
+- firebase app not intialize because import command is wrong: right one is 
+    - import firebase from 'firebase/compat/app';
+    - import 'firebase/compat/auth';
+    - import 'firebase/compat/firestore';
