@@ -15,12 +15,14 @@ function SignIn() {
 
     return (
         <>
-            <div className='flex flex-col text-center'>
-                <Box>
+            <div className="flex flex-col text-center">
+                <Box pt={8} pb={3}>
                     <MessageRoundedIcon color='primary' sx={{ fontSize: 100 }}></MessageRoundedIcon>
                 </Box>
-                <Typography variant='h5'>This is a React Message Chat</Typography>
-                <Box>
+                <Box pt={3} pb={3}>
+                    <Typography variant='h5'>React Message Chat</Typography>
+                </Box>
+                <Box pt={3} pb={3}>
                     <Button variant="contained" startIcon={<GoogleIcon/>} color="primary" onClick={signInWithGoogle}>Sign In With Google</Button>
                 </Box>
             </div>
