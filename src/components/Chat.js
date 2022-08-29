@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import { db } from '../firebase'
+import { db, auth } from '../firebase'
 import SendMessages from './SendMessages'
 import SignOut from './SignOut'
 
@@ -16,12 +16,16 @@ function Chat() {
   return (
     <div>
       <SignOut/>
-      {messages.map(({id, text, photoURL}) => (
-        <div key={id}>
-          <img src={photoURL} alt=""></img>
-          <p>{text}</p>
-        </div>
-      ))}
+      <div className='msgs'>
+        {messages.map(({id, text, photoURL, uid}) => (
+          <div>
+            <div key={id} className={`msg ${uid == auth.currentUser ? 'sent' : 'received'}`}>
+              <img src={photoURL} alt="image"></img>
+              <p>{text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
       <SendMessages/> 
     </div>
   )
