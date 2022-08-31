@@ -2,7 +2,7 @@ import React from 'react'
 import firebase from 'firebase/compat/app';
 import { auth } from '../firebase.js'
 
-import { Button, Typography, Box, Paper } from '@material-ui/core'
+import { Button, Typography, Box, Paper, withTheme } from '@material-ui/core'
 import MessageRoundedIcon from '@mui/icons-material/MessageRounded';
 import GoogleIcon from '@mui/icons-material/Google';
 
@@ -14,6 +14,7 @@ const styles = {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
+        height:"100vh"
     }
 };
 
@@ -30,7 +31,7 @@ function SignIn() {
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
                     <Box></Box>
                     <Box sx={{ p:10 }}> 
-                        <div className="flex flex-col text-center h-screen pt-32 bg-slate-50">
+                        <Box sx={{ display:"flex", flexDirection:"column", textAlign:"center", backgrondColor:"white"}}>
                             <Box pt={5}>
                                 <Typography variant='h5'>React Message Chat</Typography>
                             </Box>
@@ -43,7 +44,7 @@ function SignIn() {
                             <Box py={3}>
                                 <Button variant="contained" startIcon={<GoogleIcon/>} color="primary" onClick={signInWithGoogle}>Sign In With Google</Button>
                             </Box>
-                        </div> 
+                        </Box>
                     </Box>
                     <Box></Box>
                 </Box>
