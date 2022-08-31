@@ -3,7 +3,6 @@ import firebase from 'firebase/compat/app';
 import { auth } from '../firebase.js'
 
 import { Button, Typography, Box, Paper, withTheme } from '@material-ui/core'
-import MessageRoundedIcon from '@mui/icons-material/MessageRounded';
 import GoogleIcon from '@mui/icons-material/Google';
 
 import signInBackground from "../assets/background.jpeg"
@@ -28,25 +27,18 @@ function SignIn() {
     return (
         <>
             <Paper style={styles.paperContainer}>
-                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
-                    <Box></Box>
-                    <Box sx={{ p:10 }}> 
-                        <Box sx={{ display:"flex", flexDirection:"column", textAlign:"center", backgrondColor:"white"}}>
-                            <Box pt={5}>
-                                <Typography variant='h5'>React Message Chat</Typography>
-                            </Box>
-                            <Box pt={2}>
-                                <Typography variant='h8'>Sign Into Your Account</Typography>
-                            </Box>
-                            <Box py={3}>
-                                <MessageRoundedIcon color='primary' sx={{ fontSize: 100 }}></MessageRoundedIcon>
-                            </Box>
-                            <Box py={3}>
-                                <Button variant="contained" startIcon={<GoogleIcon/>} color="primary" onClick={signInWithGoogle}>Sign In With Google</Button>
-                            </Box>
+                <Box sx={{ pt:18, textAlign:"center"}}>
+                    <Box sx={{ display:"inline-block", textAlign:"center", bgcolor:"white", borderRadius:"5%", width:300}}>
+                        <Box pt={4}>
+                            <Typography variant='h5'>React Message Chat</Typography>
+                        </Box>
+                        <Box pt={2} px={5}>
+                            <Typography variant='subtitle2'>Sign Into Your Account By Logging Into Your Gmail Account</Typography>
+                        </Box>
+                        <Box pt={2} pb={4}>
+                            <Button size="small" variant="contained" startIcon={<GoogleIcon/>} color="primary" onClick={signInWithGoogle}>Sign In With Google</Button>
                         </Box>
                     </Box>
-                    <Box></Box>
                 </Box>
             </Paper>
         </>
