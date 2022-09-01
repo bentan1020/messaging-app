@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from 'react'
 import { db, auth } from '../firebase'
+import firebase from 'firebase/compat/app';
 import SendMessages from './SendMessages'
-import SignOut from './SignOut'
+import { Grid, Button, Box, Typography} from '@material-ui/core'
 
 function Chat() {
 
@@ -13,20 +14,50 @@ function Chat() {
     })
   }, [])
 
+  function changeAccount(){
+    const provider = new firebase.auth.GoogleAuthProvider()
+    auth.signInWithPopup(provider)
+  }
+
   return (
     <div>
-      <SignOut/>
-      <div className='msgs'>
-        {messages.map(({id, text, photoURL, uid}) => (
-          <div>
-            <div key={id} className={`msg ${uid == auth.currentUser.uid ? 'sent' : 'received'}`}>
-              <img src={photoURL} alt="image"></img>
-              <p>{text}</p>
-            </div>
+
+      <Grid container spacing={0} style={{width:'100%'}}>
+
+        <Grid item xs={12} md={10}>
+          <div className='msgs'>
+            {messages.map(({id, text, photoURL, uid}) => (
+              <div>
+                <div key={id} className={`msg ${uid === auth.currentUser.uid ? 'sent' : 'received'}`}>
+                  <img src={photoURL}></img>
+                  <p>{text}</p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <SendMessages/> 
+          <SendMessages/> 
+        </Grid>
+
+        <Grid item xs={0} md={2}>
+          <Box sx={{bgcolor:"#F5FCFF", height:"100vh", position:"fixed", width:"16.667%", textAlign:"center"}}>
+
+            <Box mt={16}>
+              <img src={auth.currentUser.photoURL} className='border-2 border-black rounded-2xl block mx-auto'></img>
+            </Box>
+
+            <Box mt={4}>
+              <Button onClick={() => {changeAccount()}} variant="contained" color="primary">Change Account</Button>
+            </Box>
+          
+            {/* Sign out button */}
+            <Box mt={2} textAlign="center">
+              <Button onClick={() => auth.signOut()} variant="contained" color="primary">Sign Out</Button>
+            </Box>
+          </Box>
+        </Grid>
+
+      </Grid>
+
     </div>
   )
 }
