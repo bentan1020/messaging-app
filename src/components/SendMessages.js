@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { auth, db } from '../firebase'
 import firebase from 'firebase/compat/app';
 
-function SendMessages() {
+function SendMessages({ scroll }) {
     const [msg, setMsg] = useState("")
 
     async function sendMessage(e){
@@ -18,6 +18,7 @@ function SendMessages() {
         })
 
         setMsg("")
+        scroll.current.scrollIntoView({ behavior: 'smooth' })
     }
 
     return (

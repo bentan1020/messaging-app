@@ -58,6 +58,7 @@ p {
 }
   
 .msgs {
+    margin: 10px 0 75px;
     display: flex;
     flex-direction: column;
 }

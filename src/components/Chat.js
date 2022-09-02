@@ -1,10 +1,12 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useRef} from 'react'
 import { db, auth } from '../firebase'
 import firebase from 'firebase/compat/app';
 import SendMessages from './SendMessages'
 import { Grid, Button, Box, Typography} from '@material-ui/core'
 
 function Chat() {
+
+  const scroll = useRef()
 
   const [messages, setMessages] = useState([])
 
@@ -35,7 +37,8 @@ function Chat() {
               </div>
             ))}
           </div>
-          <SendMessages/> 
+          <SendMessages scroll={scroll}/> 
+          <div ref={scroll}></div>
         </Grid>
 
         <Grid item xs={0} md={2}>
