@@ -74,3 +74,10 @@ Notes/Challenges:
     - import firebase from 'firebase/compat/app';
     - import 'firebase/compat/auth';
     - import 'firebase/compat/firestore';
+- features
+    - [x] Sign in 
+    - [x] Real time chat
+    - [x] Change account
+    - [x] Log out function
+    - [ ] Search function
+    - [ ] 

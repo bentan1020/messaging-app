@@ -48,11 +48,10 @@ p {
 .sendMsg {
     position: fixed;
     display: flex;
-    width: 100%;
+    width: 83.3333334%;
     bottom: 0;
     z-index: 1;
     border-top: 1px solid lightgray;
-    margin-left: -5px;
     padding: 10px;
     padding-bottom: 30px;
     background-color: #fafafa;
@@ -77,6 +76,9 @@ p {
       height: 35px;
       margin-top: -10px;
     }
+    .sendMsg {
+      width: 100%;
+    }
 }
   
 @media (max-width: 500px) {
@@ -92,5 +94,8 @@ p {
     img {
       height: 30px;
       margin-top: -7px;
+    }
+    .sendMsg {
+      width: 100%;
     }
 }
