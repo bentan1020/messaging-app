@@ -79,3 +79,8 @@ Notes/Challenges:
     - [x] Real time chat
     - [x] Change account
     - [x] Log out function
+- technologies used
+    - React
+    - firebase
+    - materialUI
+    - tailwind
